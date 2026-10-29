@@ -27,7 +27,7 @@ endif()
 
 add_executable(render_test tools/render_test.cc)
 target_link_libraries(render_test PRIVATE beads_core)
-
+target_compile_definitions(render_test PRIVATE _USE_MATH_DEFINES _CRT_SECURE_NO_WARNINGS)
 option(BEADS_BUILD_PLUGIN "Build the JUCE plugin" ON)
 if(BEADS_BUILD_PLUGIN AND EXISTS "${CMAKE_SOURCE_DIR}/plugin/CMakeLists.txt")
   add_subdirectory(plugin)
