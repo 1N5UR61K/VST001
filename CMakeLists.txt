@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.22)
+  cmake_minimum_required(VERSION 3.22)
 project(BeadsVST VERSION 0.1.0 LANGUAGES C CXX)
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
@@ -19,7 +19,7 @@ add_library(beads_core STATIC
   core/stmlib/dsp/units.cc)
 target_include_directories(beads_core PUBLIC core)
 # TEST selects the portable C++ code paths in stmlib instead of ARM assembly.
-target_compile_definitions(beads_core PRIVATE TEST)
+target_compile_definitions(beads_core PRIVATE TEST _USE_MATH_DEFINES)
 set_target_properties(beads_core PROPERTIES POSITION_INDEPENDENT_CODE ON)
 if(NOT MSVC)
   target_compile_options(beads_core PRIVATE -Wno-unused-local-typedefs -Wno-unused-variable)
